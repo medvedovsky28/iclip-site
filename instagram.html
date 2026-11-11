@@ -5,12 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
 <title>iClip</title>
-<link rel="stylesheet" href="style.css">
+<style>
+  html, body { height: 100%; margin: 0; }
+  body { display: flex; align-items: center; justify-content: center; background: #fafafa; font: 14px/1.4 -apple-system, "Helvetica Neue", Arial, sans-serif; color: #666; }
+  .box { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+  .ring { width: 34px; height: 34px; border-radius: 50%; border: 3px solid #e9e3fb; border-top-color: #7c3aed; animation: spin .8s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+</style>
 </head>
 <body>
-<main>
-<p>Weiter zu iClip …</p>
-</main>
+<div class="box">
+  <div class="ring" aria-hidden="true"></div>
+  <div>Einen Moment …</div>
+</div>
 <script>
 // Rücksprung nach der Instagram-Anmeldung: Code und Prüfwert an die App auf diesem Mac weitergeben
 location.replace("http://localhost:3000/api/instagram/callback" + location.search);
