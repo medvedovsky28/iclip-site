@@ -5,18 +5,35 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
 <title>iClip</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
+  /* Wie die App (iClip-Designsystem): heller grauer Grund, weiße Karte, ruhiger grauer Ladekreis, kein Violett */
   html, body { height: 100%; margin: 0; }
-  body { display: flex; align-items: center; justify-content: center; background: #fafafa; font: 14px/1.4 -apple-system, "Helvetica Neue", Arial, sans-serif; color: #666; }
-  .box { display: flex; flex-direction: column; align-items: center; gap: 14px; }
-  .ring { width: 34px; height: 34px; border-radius: 50%; border: 3px solid #e9e3fb; border-top-color: #7c3aed; animation: spin .8s linear infinite; }
+  body {
+    display: flex; align-items: center; justify-content: center;
+    background: #f7f7f7; color: #8c8c8c;
+    font: 13px/20px Inter, -apple-system, "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .card {
+    display: flex; align-items: center; gap: 10px;
+    padding: 12px 16px; border-radius: 12px; background: #fff;
+    box-shadow: 0 0 0 0.5px rgba(0,0,0,.06), 0 1px 1px -1px rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.05);
+  }
+  .spin { width: 16px; height: 16px; animation: spin .8s linear infinite; color: #8c8c8c; }
   @keyframes spin { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .spin { animation-duration: 2s; } }
 </style>
 </head>
 <body>
-<div class="box">
-  <div class="ring" aria-hidden="true"></div>
-  <div>Einen Moment …</div>
+<div class="card" role="status">
+  <svg class="spin" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+    <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-opacity=".25" stroke-width="2"/>
+    <path d="M14 8a6 6 0 0 0-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  </svg>
+  <span>Wird verbunden …</span>
 </div>
 <script>
 // Rücksprung nach der Instagram-Anmeldung: Code und Prüfwert an die App auf diesem Mac weitergeben
